@@ -8,12 +8,17 @@ function ensureAuthenticated(req, res, next) {
     return next();
   }
   // denied. redirect to login
-  res.redirect("/");
+  res.redirect("/erroAcesso");
 }
 
 /* GET home page. */
 router.get("/", function(req, res, next) {
   res.render("index", { title: "Express" });
+});
+
+/* GET home page. */
+router.get("/erroAcesso", function(req, res, next) {
+  res.render("erroAcesso", { title: "Express" });
 });
 
 router.get("/auth/github", passport.authenticate("github"));
